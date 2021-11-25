@@ -34,10 +34,10 @@ while game_is_on:
     if answer_state == "Exit":
         # states_to_learn.csv
         state_list = state_name.to_list()
-        leftover = []
-        for s in state_list:
-            if s not in correct_answers:
-                leftover.append(s)
+        leftover = [s for s in state_list if s not in correct_answers]
+        # for s in state_list:
+        #     if s not in correct_answers:
+        #         leftover.append(s)
         data = pandas.DataFrame(leftover)
         data.to_csv("states_to_learn.csv")
         break
